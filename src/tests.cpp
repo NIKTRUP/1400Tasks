@@ -153,7 +153,6 @@ namespace tests {
             }
         }
 
-        // TODO:: А что будет, если я введу мньше 3-х ? чисел
         void TestTask_14(){
             {
                 std::stringstream ss_out, ss_in;
@@ -201,7 +200,6 @@ namespace tests {
             }
         }
 
-        // TODO::  А что будет, если я введу мньше 4-х ? чисел
         void TestTask_15(){
             {
                 std::stringstream ss_out, ss_in;
