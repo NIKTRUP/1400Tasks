@@ -13,6 +13,9 @@ namespace ch_1{
 
     static std::string input_error_message = "Ошибка ввода"s;
 
+    // Функции возвращают ссылку на поток вывода, чтобы (при желании)
+    // можно было последовтельно вызывать их с оператором "<<".
+
     std::ostream& Print_31_18_79(std::ostream& out = std::cout);
 
     std::ostream&  Print_47__52__150(std::ostream& out = std::cout);
@@ -45,11 +48,17 @@ namespace ch_1{
 
     std::ostream& PrintFourNumbers(std::istream& cin, std::ostream& out  = std::cout);
 
-    void Task_16();
+    std::ostream& Print16VarA(std::ostream& out  = std::cout);
 
-    void Task_17();
+    std::ostream& Print16VarB(std::istream& cin, std::ostream& out  = std::cout);
 
+    std::ostream& Print16VarC(std::istream& cin, std::ostream& out  = std::cout);
 
+    std::ostream& Print17VarA(std::ostream& out  = std::cout);
+
+    std::ostream& Print17VarB(std::istream& cin, std::ostream& out  = std::cout);
+
+    std::ostream& Print17VarC(std::istream& cin, std::ostream& out  = std::cout);
 }
 
 #endif //INC_1400PROGRAMMINGTASKS_CHAPTER_1_H

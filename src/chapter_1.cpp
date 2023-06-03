@@ -1,6 +1,7 @@
 #include "../include/chapter_1.h"
 
 namespace ch_1{
+
     std::ostream& Print_31_18_79(std::ostream& out){
         out << 31 << " " << 18 << " " << 79;
         return out;
@@ -109,6 +110,66 @@ namespace ch_1{
             out << input_error_message;
         }else{
             out << number1 << " " << number2 << " " << number3 << " " << number4;
+        }
+        return out;
+    }
+
+    std::ostream& Print16VarA(std::ostream& out){
+        out << "5 10\n";
+        out << "7 см\n";
+        return out;
+    }
+
+    std::ostream& Print16VarB(std::istream& cin, std::ostream& out){
+        double t = 0, v = 0; //названия переменных в книге
+        cin >> t >> v;
+        if (cin.fail()) {
+            out << input_error_message;
+        }else{
+            out << 100 << " " << t << "\n"
+                << 1949 << " " << v << "\n";
+        }
+        return out;
+    }
+
+    std::ostream& Print16VarC(std::istream& cin, std::ostream& out){
+        double x = 0, y = 0; //названия переменных в книге
+        cin >> x >> y;
+        if (cin.fail()) {
+            out << input_error_message;
+        }else{
+            out << x << " " << 25 << "\n"
+                << x << " " << y << "\n";
+        }
+        return out;
+    }
+
+    std::ostream& Print17VarA(std::ostream& out){
+        out << "2 кг\n";
+        out << "13 17\n";
+        return out;
+    }
+
+    std::ostream& Print17VarB(std::istream& cin, std::ostream& out){
+        double a = 0, b = 0; //названия переменных в книге
+        cin >> a >> b;
+        if (cin.fail()) {
+            out << input_error_message;
+        }else{
+            out << a << " " << 1 << "\n"
+                << 19 << " " << b << "\n";
+        }
+        return out;
+    }
+
+    std::ostream& Print17VarC(std::istream& cin, std::ostream& out){
+        double x = 0, y = 0; //названия переменных в книге
+        cin >> x >> y;
+        if (cin.fail()) {
+            out << input_error_message;
+        }else{
+            out << x << " " << y << "\n"
+                << 5 << " " << y << "\n";
         }
         return out;
     }

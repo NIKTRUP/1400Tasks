@@ -153,6 +153,9 @@ namespace tests {
             }
         }
 
+        // TODO:: написать функцию, обобщающую тесты:
+        // Example : bool Tests(function, istream&, ostream& out , ostream& test)
+
         void TestTask_14(){
             {
                 std::stringstream ss_out, ss_in;
@@ -175,6 +178,15 @@ namespace tests {
             {
                 std::stringstream ss_out, ss_in;
                 ss_in << 10 << " " << 11;
+                ::ch_1::PrintThreeNumbers(ss_in, ss_out);
+                std::stringstream ss_test;
+                ss_test << ::ch_1::input_error_message;
+                ASSERT(ss_out.str() == ss_test.str());
+            }
+
+            {
+                std::stringstream ss_out, ss_in;
+                ss_in << 10 << 11 << 12 ;
                 ::ch_1::PrintThreeNumbers(ss_in, ss_out);
                 std::stringstream ss_test;
                 ss_test << ::ch_1::input_error_message;
@@ -230,6 +242,15 @@ namespace tests {
 
             {
                 std::stringstream ss_out, ss_in;
+                ss_in << 10 << 11 << 12  << 15;
+                ::ch_1::PrintFourNumbers(ss_in, ss_out);
+                std::stringstream ss_test;
+                ss_test << ::ch_1::input_error_message;
+                ASSERT(ss_out.str() == ss_test.str());
+            }
+
+            {
+                std::stringstream ss_out, ss_in;
                 ss_in << 10 << " " << 11 << " " << 12 << " " << 15 << "  " << 125;
                 ::ch_1::PrintFourNumbers(ss_in, ss_out);
                 std::stringstream ss_test;
@@ -248,11 +269,139 @@ namespace tests {
         }
 
         void TestTask_16(){
-            ASSERT(false);
+            // а)
+            {
+                std::stringstream ss_out;
+                ::ch_1::Print16VarA(ss_out);
+                std::stringstream ss_test;
+                ss_test << "5 10\n";
+                ss_test << "7 см\n";
+                ASSERT(ss_out.str() == ss_test.str());
+            }
+            // б)
+            {
+                std::stringstream ss_out, ss_in;
+                ss_in << 10 << " " << 15;
+                ::ch_1::Print16VarB(ss_in, ss_out);
+                std::stringstream ss_test;
+                ss_test << "100 10\n";
+                ss_test << "1949 15\n";
+                ASSERT(ss_out.str() == ss_test.str());
+            }
+
+            {
+                std::stringstream ss_out, ss_in;
+                ss_in << 10;
+                ::ch_1::Print16VarB(ss_in, ss_out);
+                std::stringstream ss_test;
+                ss_test << ::ch_1::input_error_message;
+                ASSERT(ss_out.str() == ss_test.str());
+            }
+
+            {
+                std::stringstream ss_out, ss_in;
+                ss_in << 10 << 15;
+                ::ch_1::Print16VarB(ss_in, ss_out);
+                std::stringstream ss_test;
+                ss_test << ::ch_1::input_error_message;
+                ASSERT(ss_out.str() == ss_test.str());
+            }
+            // в)
+            {
+                std::stringstream ss_out, ss_in;
+                ss_in << 10 << " " << 15;
+                ::ch_1::Print16VarC(ss_in, ss_out);
+                std::stringstream ss_test;
+                ss_test << "10 25\n";
+                ss_test << "10 15\n";
+                ASSERT(ss_out.str() == ss_test.str());
+            }
+
+            {
+                std::stringstream ss_out, ss_in;
+                ss_in << 10;
+                ::ch_1::Print16VarC(ss_in, ss_out);
+                std::stringstream ss_test;
+                ss_test << ::ch_1::input_error_message;
+                ASSERT(ss_out.str() == ss_test.str());
+            }
+
+            {
+                std::stringstream ss_out, ss_in;
+                ss_in << 10 << 15;
+                ::ch_1::Print16VarC(ss_in, ss_out);
+                std::stringstream ss_test;
+                ss_test << ::ch_1::input_error_message;
+                ASSERT(ss_out.str() == ss_test.str());
+            }
         }
 
         void TestTask_17(){
-            ASSERT(false);
+            // а)
+            {
+                std::stringstream ss_out;
+                ::ch_1::Print17VarA(ss_out);
+                std::stringstream ss_test;
+                ss_test << "2 кг\n";
+                ss_test << "13 17\n";
+                ASSERT(ss_out.str() == ss_test.str());
+            }
+            // б)
+            {
+                std::stringstream ss_out, ss_in;
+                ss_in << 10 << " " << 15;
+                ::ch_1::Print17VarB(ss_in, ss_out);
+                std::stringstream ss_test;
+                ss_test << "10 1\n";
+                ss_test << "19 15\n";
+                ASSERT(ss_out.str() == ss_test.str());
+            }
+
+            {
+                std::stringstream ss_out, ss_in;
+                ss_in << 10;
+                ::ch_1::Print17VarB(ss_in, ss_out);
+                std::stringstream ss_test;
+                ss_test << ::ch_1::input_error_message;
+                ASSERT(ss_out.str() == ss_test.str());
+            }
+
+            {
+                std::stringstream ss_out, ss_in;
+                ss_in << 10 << 15;
+                ::ch_1::Print17VarB(ss_in, ss_out);
+                std::stringstream ss_test;
+                ss_test << ::ch_1::input_error_message;
+                ASSERT(ss_out.str() == ss_test.str());
+            }
+            // в)
+            {
+                std::stringstream ss_out, ss_in;
+                ss_in << 10 << " " << 15;
+                ::ch_1::Print17VarC(ss_in, ss_out);
+                std::stringstream ss_test;
+                ss_test << "10 15\n";
+                ss_test << "5 15\n";
+                ASSERT(ss_out.str() == ss_test.str());
+            }
+
+            {
+                std::stringstream ss_out, ss_in;
+                ss_in << 10;
+                ::ch_1::Print17VarC(ss_in, ss_out);
+                std::stringstream ss_test;
+                ss_test << ::ch_1::input_error_message;
+                ASSERT(ss_out.str() == ss_test.str());
+            }
+
+            {
+                std::stringstream ss_out, ss_in;
+                ss_in << 10 << 15;
+                ::ch_1::Print17VarC(ss_in, ss_out);
+                std::stringstream ss_test;
+                ss_test << ::ch_1::input_error_message;
+                ASSERT(ss_out.str() == ss_test.str());
+            }
         }
     }
 
@@ -273,7 +422,7 @@ namespace tests {
         RUN_TEST(runner, tests::ch_1::TestTask_13);
         RUN_TEST(runner, tests::ch_1::TestTask_14);
         RUN_TEST(runner, tests::ch_1::TestTask_15);
-        //RUN_TEST(runner, tests::ch_1::TestTask_16);
-        //RUN_TEST(runner, tests::ch_1::TestTask_17);
+        RUN_TEST(runner, tests::ch_1::TestTask_16);
+        RUN_TEST(runner, tests::ch_1::TestTask_17);
     }
 }
