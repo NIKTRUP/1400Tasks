@@ -405,6 +405,8 @@ namespace tests {
         }
     }
 
+    // TODO:: Сделать функцию Test(Название параграфа 1) Для всго первого параграфа
+
     void Tests(){
         TestRunner runner;
         RUN_TEST(runner, tests::ch_1::TestTask_1);
