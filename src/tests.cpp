@@ -403,28 +403,127 @@ namespace tests {
                 ASSERT(ss_out.str() == ss_test.str());
             }
         }
+
+        void TestDisplayingInformationOnScreen(){
+            tests::ch_1::TestTask_1();
+            tests::ch_1::TestTask_2();
+            tests::ch_1::TestTask_3();
+            tests::ch_1::TestTask_4();
+            tests::ch_1::TestTask_5();
+            tests::ch_1::TestTask_6();
+            tests::ch_1::TestTask_7();
+            tests::ch_1::TestTask_8();
+            tests::ch_1::TestTask_9();
+            tests::ch_1::TestTask_10();
+            tests::ch_1::TestTask_11();
+            tests::ch_1::TestTask_12();
+            tests::ch_1::TestTask_13();
+            tests::ch_1::TestTask_14();
+            tests::ch_1::TestTask_15();
+            tests::ch_1::TestTask_16();
+            tests::ch_1::TestTask_17();
+        }
     }
 
-    // TODO:: Сделать функцию Test(Название параграфа 1) Для всго первого параграфа
+    namespace ch_2{
+
+        void TestTask_1(){
+            double eps = 1e-16;
+            {
+                double a = 17, b = -6, c = 13;
+                ASSERT(std::abs(24 - ::ch_2::CalculateParabolicEquation(1, a, b, c)) <= eps)
+
+                ASSERT(std::abs(13 - ::ch_2::CalculateParabolicEquation(0, a, b, c)) <= eps)
+
+                ASSERT(std::abs(36 - ::ch_2::CalculateParabolicEquation(-1, a, b, c)) <= eps)
+
+                ASSERT(std::abs(169413 - ::ch_2::CalculateParabolicEquation(100, a, b, c)) <= eps)
+            }
+
+            {
+                double a = 3, b = 5, c = -21;
+                ASSERT(std::abs(-13 - ::ch_2::CalculateParabolicEquation(1, a, b, c)) <= eps)
+
+                ASSERT(std::abs(-21 - ::ch_2::CalculateParabolicEquation(0, a, b, c)) <= eps)
+
+                ASSERT(std::abs(-23 - ::ch_2::CalculateParabolicEquation(-1, a, b, c)) <= eps)
+
+                ASSERT(std::abs(30479 - ::ch_2::CalculateParabolicEquation(100, a, b, c)) <= eps)
+            }
+        }
+
+        void TestTask_2(){
+
+        }
+
+        void TestTask_3(){
+
+        }
+
+        void TestTask_4(){
+
+        }
+
+        void TestTask_5(){
+
+        }
+
+        void TestTask_6(){
+
+        }
+
+        void TestTask_7(){
+
+        }
+
+        void TestTask_8(){
+
+        }
+
+        void TestTask_9(){
+
+        }
+
+        void TestTask_10(){
+
+        }
+
+        void TestTask_11(){
+
+        }
+
+        void TestTask_12(){
+
+        }
+
+        void TestTask_13(){
+
+        }
+
+        void TestTask_14(){
+
+        }
+
+        void TestTask_15(){
+
+        }
+
+        void TestTask_16(){
+
+        }
+
+        void TestTask_17(){
+
+        }
+
+        void TestCalculationsFormulas(){
+            ch_2::TestTask_1();
+        }
+    }
 
     void Tests(){
         TestRunner runner;
-        RUN_TEST(runner, tests::ch_1::TestTask_1);
-        RUN_TEST(runner, tests::ch_1::TestTask_2);
-        RUN_TEST(runner, tests::ch_1::TestTask_3);
-        RUN_TEST(runner, tests::ch_1::TestTask_4);
-        RUN_TEST(runner, tests::ch_1::TestTask_5);
-        RUN_TEST(runner, tests::ch_1::TestTask_6);
-        RUN_TEST(runner, tests::ch_1::TestTask_7);
-        RUN_TEST(runner, tests::ch_1::TestTask_8);
-        RUN_TEST(runner, tests::ch_1::TestTask_9);
-        RUN_TEST(runner, tests::ch_1::TestTask_10);
-        RUN_TEST(runner, tests::ch_1::TestTask_11);
-        RUN_TEST(runner, tests::ch_1::TestTask_12);
-        RUN_TEST(runner, tests::ch_1::TestTask_13);
-        RUN_TEST(runner, tests::ch_1::TestTask_14);
-        RUN_TEST(runner, tests::ch_1::TestTask_15);
-        RUN_TEST(runner, tests::ch_1::TestTask_16);
-        RUN_TEST(runner, tests::ch_1::TestTask_17);
+        RUN_TEST(runner, ch_1::TestDisplayingInformationOnScreen);
+        RUN_TEST(runner, ch_2::TestCalculationsFormulas);
     }
 }

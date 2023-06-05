@@ -12,4 +12,4 @@ add_executable(1400ProgrammingTasks
         include/chapter_1.h
 
         src/tests.cpp
-        src/chapter_1.cpp)
+        src/chapter_1.cpp include/chapter_2.h src/chapter_2.cpp)
