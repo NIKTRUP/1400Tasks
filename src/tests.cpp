@@ -453,11 +453,47 @@ namespace tests {
         }
 
         void TestTask_2(){
+            double eps = 1e-11;
+            auto function_task_2 = [](double a){
+                return (a*a + 10)/(std::sqrt(a*a + 1));
+            };
 
+            ASSERT(std::abs(10 - function_task_2(0)) < eps);
+            ASSERT(std::abs(7.77817459305 - function_task_2(1)) < eps);
+            ASSERT(std::abs(7.77817459305 - function_task_2(-1)) < eps);
+            ASSERT(std::abs(10000.00095 - function_task_2(10000)) < 1e-5);
         }
 
         void TestTask_3(){
+            double eps = 1e-10;
+            {
+                auto function_task_3a = [](double a){
+                    return (std::sqrt(std::complex<double>((2*a + std::sin(std::abs(3*a)))/3.56)));
+                };
 
+                ASSERT(std::abs(function_task_3a(0).real()) < eps);
+                ASSERT(std::abs(0.775524470608 - function_task_3a(1).real()) < eps);
+                ASSERT(std::abs(2.3109393231 - function_task_3a(10).real()) < eps);
+                ASSERT(std::abs(0.192586684092 - function_task_3a(-0.4).real()) < eps);
+                ASSERT(std::abs(0.0265265046378 - function_task_3a(-0.5).imag()) < eps);
+            }
+
+            {
+                auto function_task_3b = [](double x){
+                    if(x == 0.0){
+                        return std::optional<std::complex<double>>{std::nullopt};
+                    }
+                    return std::optional<std::complex<double>>(
+                            std::sin((3.2 + std::sqrt(std::complex<double>(1 + x)))/(std::abs(5*x)))
+                            );
+                };
+                ASSERT(function_task_3b(0).has_value() == false);
+                ASSERT(function_task_3b(1).has_value() && std::abs(0.797320575602 - function_task_3b(1).value().real()) < eps)
+                ASSERT(function_task_3b(10).has_value() && std::abs(0.12996382562 - function_task_3b(10).value().real()) < eps)
+                ASSERT(function_task_3b(-1).has_value() && std::abs(0.597195441362 - function_task_3b(-1).value().real()) < eps)
+                ASSERT(function_task_3b(-2).has_value() && std::abs(0.31614070455 - function_task_3b(-2).value().real()) < eps)
+                ASSERT(function_task_3b(-2).has_value() && std::abs(0.095081826833 - function_task_3b(-2).value().imag()) < eps)
+            }
         }
 
         void TestTask_4(){
@@ -518,6 +554,8 @@ namespace tests {
 
         void TestCalculationsFormulas(){
             ch_2::TestTask_1();
+            ch_2::TestTask_2();
+            ch_2::TestTask_3();
         }
     }
 
