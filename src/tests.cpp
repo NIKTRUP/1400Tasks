@@ -497,11 +497,17 @@ namespace tests {
         }
 
         void TestTask_4(){
-
+            ASSERT(::ch_2::CalculatePerimeterSquare(10) == 40);
+            ASSERT(::ch_2::CalculatePerimeterSquare(-10).has_value() == false);
+            ASSERT(::ch_2::CalculatePerimeterSquare(0) == 0);
+            ASSERT(::ch_2::CalculatePerimeterSquare(1) == 4);
         }
 
         void TestTask_5(){
-
+            ASSERT(::ch_2::CalculateDiameterCircle(10) == 20);
+            ASSERT(::ch_2::CalculateDiameterCircle(-10).has_value() == false);
+            ASSERT(::ch_2::CalculateDiameterCircle(0) == 0);
+            ASSERT(::ch_2::CalculateDiameterCircle(1) == 2);
         }
 
         void TestTask_6(){
@@ -556,6 +562,8 @@ namespace tests {
             ch_2::TestTask_1();
             ch_2::TestTask_2();
             ch_2::TestTask_3();
+            ch_2::TestTask_4();
+            ch_2::TestTask_5();
         }
     }
 
