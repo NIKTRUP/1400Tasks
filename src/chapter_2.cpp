@@ -19,4 +19,12 @@ namespace ch_2{
         }
         return 2 * radius;
     }
+
+    std::optional<Cube> CalculateCubeParameters(double edge){
+        if(edge < 0){
+            return std::optional<Cube>{std::nullopt};
+        }
+        double side_area = edge*edge, volume = side_area*edge;
+        return Cube{volume, side_area};
+    }
 }

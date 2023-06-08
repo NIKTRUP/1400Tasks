@@ -515,7 +515,16 @@ namespace tests {
         }
 
         void TestTask_7(){
-
+            auto cube = ::ch_2::CalculateCubeParameters(3);
+            ASSERT(cube->side_area == 9 && cube->volume == 27);
+            cube = ::ch_2::CalculateCubeParameters(-10);
+            ASSERT(cube.has_value() == false);
+            cube = ::ch_2::CalculateCubeParameters(0);
+            ASSERT(cube->side_area == 0 && cube->volume == 0);
+            cube = ::ch_2::CalculateCubeParameters(1);
+            ASSERT(cube->side_area == 1 && cube->volume == 1);
+            cube = ::ch_2::CalculateCubeParameters(10);
+            ASSERT(cube->side_area == 100 && cube->volume == 1000);
         }
 
         void TestTask_8(){
@@ -564,6 +573,8 @@ namespace tests {
             ch_2::TestTask_3();
             ch_2::TestTask_4();
             ch_2::TestTask_5();
+
+            ch_2::TestTask_7();
         }
     }
 
