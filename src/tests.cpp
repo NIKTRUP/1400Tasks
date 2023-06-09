@@ -529,13 +529,78 @@ namespace tests {
 
         void TestTask_8(){
 
+            double eps = 1e-16;
+            double  radius_t1 = 3,
+                    radius_t2 = -10,
+                    radius_t3 = 0,
+                    radius_t4 = 1,
+                    radius_t5 = 10;
+
+            auto test = [eps](double radius, std::optional<::ch_2::Circle> circle){
+                return (circle->radius == radius &&
+                        std::abs(2*M_PI*radius - circle->lenght) < eps &&
+                        std::abs(M_PI*radius*radius - circle->area) < eps);
+            };
+
+            auto circle = ::ch_2::CalculateCircleParameters(radius_t1);
+            ASSERT(test(radius_t1, circle));
+            circle = ::ch_2::CalculateCircleParameters(radius_t2);
+            ASSERT(circle.has_value() == false);
+            circle = ::ch_2::CalculateCircleParameters(radius_t3);
+            ASSERT(test(radius_t3, circle));
+            circle = ::ch_2::CalculateCircleParameters(radius_t4);
+            ASSERT(test(radius_t4, circle));
+            circle = ::ch_2::CalculateCircleParameters(radius_t5);
+            ASSERT(test(radius_t5, circle));
         }
 
         void TestTask_9(){
+            double eps = 1e-10;
+            {
+                auto function_9a = [](double x, double y){
+                    return 2*x*x*x - 3.44*x*y + 2.3*x*x - 7.1*y;
+                };
+                ASSERT(std::abs(function_9a(0, 0)) < eps);
+                ASSERT(std::abs(3.96 - function_9a(-1, -1)) < eps);
+                ASSERT(std::abs(-6.24 - function_9a(1, 1)) < eps);
+            }
 
+            {
+                auto function_9b = [](double a, double b){
+                    double c = (a+b);
+                    return 3.14*c*c*c + 2.75*b*b - 12.7*a - 4.1;
+                };
+                ASSERT(std::abs(-4.1 - function_9b(0, 0)) < eps);
+                ASSERT(std::abs(-13.77 - function_9b(-1, -1)) < eps);
+                ASSERT(std::abs(11.07 - function_9b(1, 1)) < eps);
+            }
         }
 
         void TestTask_10(){
+            double eps = 1e-16;
+            auto average = [](int lhs, int rhs){
+                return (static_cast<double>(lhs + rhs)) / 2.0;
+            };
+
+            ASSERT(std::abs(average(0, 0))< eps)
+            ASSERT(std::abs(0.5 - average(1, 0))< eps)
+            ASSERT(std::abs(4.0 - average(4, 4))< eps)
+            ASSERT(std::abs(55 - average(10, 100))< eps)
+            ASSERT(std::abs(-55 - average(-100, -10))< eps)
+
+            auto geometric_avg = [](int lhs, int rhs){
+                if( (lhs > 0 && rhs < 0) || (lhs < 0 && rhs > 0)){
+                    return std::optional<double>{std::nullopt};
+                }
+                return std::optional<double>{std::sqrt(lhs*rhs)};
+            };
+
+            ASSERT(std::abs(geometric_avg(0, 0).value())< eps)
+            ASSERT(std::abs(geometric_avg(1, 0).value())< eps)
+            ASSERT(std::abs(4.0 - geometric_avg(4, 4).value())< eps)
+            ASSERT(std::abs(100 - geometric_avg(10, 1000).value())< eps)
+            ASSERT(std::abs(100 - geometric_avg(-1000, -10).value())< eps)
+            ASSERT(geometric_avg(-1000, 10).has_value() == false)
 
         }
 
@@ -575,6 +640,9 @@ namespace tests {
             ch_2::TestTask_5();
 
             ch_2::TestTask_7();
+            ch_2::TestTask_8();
+            ch_2::TestTask_9();
+            ch_2::TestTask_10();
         }
     }
 

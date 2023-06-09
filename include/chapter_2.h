@@ -6,9 +6,15 @@
 
 namespace ch_2{
 
-    struct Cube{
+    struct Cube {
         double volume = 0,
         side_area = 0;
+    };
+
+    struct Circle {
+        double radius = 0,
+        lenght = 0,
+        area = 0;
     };
 
     double CalculateParabolicEquation(double x, double a, double b, double c);
@@ -18,6 +24,8 @@ namespace ch_2{
     std::optional<double> CalculateDiameterCircle(double radius);
 
     std::optional<Cube> CalculateCubeParameters(double edge);
+
+    std::optional<Circle> CalculateCircleParameters(double radius);
 
 }
 

@@ -27,4 +27,11 @@ namespace ch_2{
         double side_area = edge*edge, volume = side_area*edge;
         return Cube{volume, side_area};
     }
+
+    std::optional<Circle> CalculateCircleParameters(double radius){
+        if(radius < 0){
+            return std::optional<Circle>{std::nullopt};
+        }
+        return Circle{radius, 2*M_PI*radius, M_PI*radius*radius};
+    }
 }
