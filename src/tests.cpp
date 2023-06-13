@@ -600,28 +600,61 @@ namespace tests {
             ASSERT(std::abs(4.0 - geometric_avg(4, 4).value())< eps)
             ASSERT(std::abs(100 - geometric_avg(10, 1000).value())< eps)
             ASSERT(std::abs(100 - geometric_avg(-1000, -10).value())< eps)
+            ASSERT(std::abs(4.47213595499958 - geometric_avg(4, 5).value())< eps)
             ASSERT(geometric_avg(-1000, 10).has_value() == false)
 
         }
 
         void TestTask_11(){
-
+            double eps = 1e-16;
+            ASSERT(std::abs(1 - ::ch_2::CalculateDensity(2, 2).value()) < eps)
+            ASSERT(std::abs(0.2 - ::ch_2::CalculateDensity(2, 10).value()) < eps)
+            ASSERT(std::abs(5 - ::ch_2::CalculateDensity(10, 2).value()) < eps)
+            ASSERT(::ch_2::CalculateDensity(2, 0).has_value() == false)
+            ASSERT(::ch_2::CalculateDensity(2, -1).has_value() == false)
+            ASSERT(::ch_2::CalculateDensity(-1, 2).has_value() == false)
         }
 
         void TestTask_12(){
-
+            double eps = 1e-16;
+            ASSERT(std::abs(1.0 - ::ch_2::CalculatePopulationDensity(2000, 2000).value()) < eps)
+            ASSERT(std::abs(0.2 - ::ch_2::CalculatePopulationDensity(2000, 10000).value()) < eps)
+            ASSERT(std::abs(5 - ::ch_2::CalculatePopulationDensity(10000, 2000).value()) < eps)
+            ASSERT(::ch_2::CalculatePopulationDensity(2000, 0).has_value() == false)
+            ASSERT(::ch_2::CalculatePopulationDensity(2000, -1).has_value() == false)
+            ASSERT(::ch_2::CalculatePopulationDensity(-1, 2000).has_value() == false)
         }
 
         void TestTask_13(){
-
+            double eps = 1e-16;
+            ASSERT(std::abs(-1.0 - ::ch_2::SolveLinearEquation(2, 2).value()) < eps)
+            ASSERT(std::abs(-5 - ::ch_2::SolveLinearEquation(2, 10).value()) < eps)
+            ASSERT(std::abs(-0.2 - ::ch_2::SolveLinearEquation(10, 2).value()) < eps)
+            ASSERT(std::abs(-0.2 - ::ch_2::SolveLinearEquation(-10, -2).value()) < eps)
+            ASSERT(std::abs(0.2 - ::ch_2::SolveLinearEquation(-10, 2).value()) < eps)
+            ASSERT(::ch_2::SolveLinearEquation(0, 2000).has_value() == false)
         }
 
         void TestTask_14(){
-
+            double eps = 1e-10;
+            ASSERT(std::abs(2.82842712475 - ::ch_2::CalculateHypotenuse(2, 2).value()) < eps)
+            ASSERT(std::abs(10.1980390272 - ::ch_2::CalculateHypotenuse(2, 10).value()) < eps)
+            ASSERT(std::abs(10.1980390272  - ::ch_2::CalculateHypotenuse(10, 2).value()) < eps)
+            ASSERT(::ch_2::CalculateHypotenuse(2, 0).has_value() == false)
+            ASSERT(::ch_2::CalculateHypotenuse(0, 0).has_value() == false)
+            ASSERT(::ch_2::CalculateHypotenuse(2, -1).has_value() == false)
+            ASSERT(::ch_2::CalculateHypotenuse(-1, 2).has_value() == false)
         }
 
         void TestTask_15(){
-
+            double eps = 1e-8;
+            ASSERT(std::abs(301.592894745  - ::ch_2::CalculateAreaRing(10, 2).value()) < eps)
+            ASSERT(::ch_2::CalculateAreaRing(2, 0).has_value() == false)
+            ASSERT(::ch_2::CalculateAreaRing(0, 0).has_value() == false)
+            ASSERT(::ch_2::CalculateAreaRing(2, -1).has_value() == false)
+            ASSERT(::ch_2::CalculateAreaRing(-1, 2).has_value() == false)
+            ASSERT(::ch_2::CalculateAreaRing(2, 2).has_value() == false)
+            ASSERT(::ch_2::CalculateAreaRing(2, 10).has_value() == false)
         }
 
         void TestTask_16(){
@@ -643,6 +676,11 @@ namespace tests {
             ch_2::TestTask_8();
             ch_2::TestTask_9();
             ch_2::TestTask_10();
+            ch_2::TestTask_11();
+            ch_2::TestTask_12();
+            ch_2::TestTask_13();
+            ch_2::TestTask_14();
+            ch_2::TestTask_15();
         }
     }
 

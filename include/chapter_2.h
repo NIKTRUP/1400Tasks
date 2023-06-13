@@ -27,6 +27,15 @@ namespace ch_2{
 
     std::optional<Circle> CalculateCircleParameters(double radius);
 
+    std::optional<double> CalculateDensity(double weight, double volume);
+
+    std::optional<double> CalculatePopulationDensity(double people_amount, double area);
+
+    std::optional<double> SolveLinearEquation(double a, double b);
+
+    std::optional<double> CalculateHypotenuse(double a, double b);
+
+    std::optional<double> CalculateAreaRing(double radius_out, double radius_in);
 }
 
 #endif //INC_1400PROGRAMMINGTASKS_CHAPTER_2_H

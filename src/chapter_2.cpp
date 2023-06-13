@@ -34,4 +34,40 @@ namespace ch_2{
         }
         return Circle{radius, 2*M_PI*radius, M_PI*radius*radius};
     }
+
+    std::optional<double> CalculateDensity(double weight, double volume){
+        if(weight < 0 || volume <= 0){
+            return std::optional<double>{std::nullopt};
+        }
+        return weight/volume;
+    }
+
+    std::optional<double> CalculatePopulationDensity(double people_amount, double area){
+        if(people_amount < 0 || area <= 0){
+            return std::optional<double>{std::nullopt};
+        }
+        return people_amount/area;
+    }
+
+    std::optional<double> SolveLinearEquation(double a, double b){
+        if(a == 0){
+            return std::optional<double>{std::nullopt};
+        }
+        return -b/a;
+    }
+
+    std::optional<double> CalculateHypotenuse(double a, double b){
+        if(a <= 0 || b <= 0){
+            return std::optional<double>{std::nullopt};
+        }
+        return std::sqrt(a*a + b*b);
+    }
+
+    // Внешний радиус кольца больше внутреннего, оба - положительные числа
+    std::optional<double> CalculateAreaRing(double radius_out, double radius_in){
+        if(radius_out <= 0 || radius_in <= 0 || radius_out <= radius_in){
+            return std::optional<double>{std::nullopt};
+        }
+        return M_PI*(radius_out*radius_out - radius_in*radius_in);
+    }
 }
