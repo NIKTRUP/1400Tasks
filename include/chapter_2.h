@@ -36,6 +36,10 @@ namespace ch_2{
     std::optional<double> CalculateHypotenuse(double a, double b);
 
     std::optional<double> CalculateAreaRing(double radius_out, double radius_in);
+
+    std::optional<double> CalculatePerimeterTriangle(double a, double b);
+
+    std::optional<double> CalculatePerimeterTrapezoid(double a, double b, double h);
 }
 
 #endif //INC_1400PROGRAMMINGTASKS_CHAPTER_2_H

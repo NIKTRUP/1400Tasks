@@ -70,4 +70,27 @@ namespace ch_2{
         }
         return M_PI*(radius_out*radius_out - radius_in*radius_in);
     }
+
+    std::optional<double> CalculatePerimeterTriangle(double a, double b){
+        auto c = CalculateHypotenuse(a, b);
+        return c.has_value() ? c.value() + a + b: std::optional<double>{std::nullopt};
+    }
+
+    std::optional<double> CalculatePerimeterTrapezoid(double a, double b, double h){
+        if(a <= 0 || b <= 0 || h <= 0){
+            return std::optional<double>{std::nullopt};
+        }
+
+        double d = 0;
+        if(a == b){
+            return a + b + h*2;
+        }else if(a < b){
+            d = (b - a)/2.0;
+        }else{
+            d = (a - b)/2.0;
+        }
+        auto c = CalculateHypotenuse(d, h);
+        return c.has_value() ? 2*c.value() + a + b : std::optional<double>{std::nullopt};
+
+    }
 }

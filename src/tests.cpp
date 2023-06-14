@@ -658,11 +658,29 @@ namespace tests {
         }
 
         void TestTask_16(){
-
+            double eps = 1e-9;
+            ASSERT(std::abs(12 - ::ch_2::CalculatePerimeterTriangle(4, 3).value()) < eps)
+            ASSERT(std::abs(12 - ::ch_2::CalculatePerimeterTriangle(3, 4).value()) < eps)
+            ASSERT(std::abs(19.0622577483 - ::ch_2::CalculatePerimeterTriangle(7, 4).value()) < eps)
+            ASSERT(::ch_2::CalculatePerimeterTriangle(2, 0).has_value() == false)
+            ASSERT(::ch_2::CalculatePerimeterTriangle(0, 0).has_value() == false)
+            ASSERT(::ch_2::CalculatePerimeterTriangle(2, -1).has_value() == false)
+            ASSERT(::ch_2::CalculatePerimeterTriangle(-1, 2).has_value() == false)
         }
 
         void TestTask_17(){
-
+            double eps = 1e-9;
+            ASSERT(std::abs(10 - ::ch_2::CalculatePerimeterTrapezoid(2, 2, 3).value()) < eps)
+            ASSERT(std::abs(24 - ::ch_2::CalculatePerimeterTrapezoid(10, 4, 4).value()) < eps)
+            ASSERT(std::abs(24 - ::ch_2::CalculatePerimeterTrapezoid(4, 10, 4).value()) < eps)
+            ASSERT(std::abs(27.313708499 - ::ch_2::CalculatePerimeterTrapezoid(12, 4, 4).value()) < eps)
+            ASSERT(std::abs(27.313708499 - ::ch_2::CalculatePerimeterTrapezoid(4, 12, 4).value()) < eps)
+            ASSERT(::ch_2::CalculatePerimeterTrapezoid(2, 0, 1).has_value() == false)
+            ASSERT(::ch_2::CalculatePerimeterTrapezoid(0, 0, 1).has_value() == false)
+            ASSERT(::ch_2::CalculatePerimeterTrapezoid(2, -1, 1).has_value() == false)
+            ASSERT(::ch_2::CalculatePerimeterTrapezoid(-1, 2, 1).has_value() == false)
+            ASSERT(::ch_2::CalculatePerimeterTrapezoid(2, 2, -1).has_value() == false)
+            ASSERT(::ch_2::CalculatePerimeterTrapezoid(2, 2, 0).has_value() == false)
         }
 
         void TestCalculationsFormulas(){
@@ -681,6 +699,8 @@ namespace tests {
             ch_2::TestTask_13();
             ch_2::TestTask_14();
             ch_2::TestTask_15();
+            ch_2::TestTask_16();
+            ch_2::TestTask_17();
         }
     }
 
