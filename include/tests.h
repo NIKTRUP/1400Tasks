@@ -81,6 +81,48 @@ namespace tests{
 
         void TestTask_17();
 
+        void TestTask_18();
+
+        void TestTask_19();
+
+        void TestTask_20();
+
+        void TestTask_21();
+
+        void TestTask_22();
+
+        void TestTask_23();
+
+        void TestTask_24();
+
+        void TestTask_25();
+
+        void TestTask_26();
+
+        void TestTask_27();
+
+        void TestTask_28();
+
+        void TestTask_29();
+
+        void TestTask_30();
+
+        void TestTask_31();
+
+        void TestTask_32();
+
+        void TestTask_33();
+
+        void TestTask_34();
+
+        void TestTask_35();
+
+        void TestTask_36();
+
+        void TestTask_37();
+
+        void TestTask_38();
+
         void TestCalculationsFormulas();
     }
 

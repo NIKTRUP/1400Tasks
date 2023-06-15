@@ -683,6 +683,141 @@ namespace tests {
             ASSERT(::ch_2::CalculatePerimeterTrapezoid(2, 2, 0).has_value() == false)
         }
 
+        void TestTask_18(){
+            double eps = 1e-9;
+            auto z = [](double x, double y){
+                if(x == 0 || y == -1/(std::sqrt(x*x + 10))){
+                    return std::optional<double>{std::nullopt};
+                }
+                double denominator = y + 1.0/std::sqrt(x*x + 10);
+                return std::optional<double>{(x + (2 + y)/(x*x))/denominator};
+            };
+
+            {
+                ASSERT(std::abs(3.07335008386 - z(1, 1).value()) < eps);
+                ASSERT(z(0, 1).has_value() == false);
+            }
+
+            auto q = [](double x, double y){
+                return 7.25*sin(x) - std::abs(y);
+            };
+
+            {
+                ASSERT(std::abs(6.10066463986 - q(1, 0)) < eps);
+                ASSERT(std::abs(5.10066463986 - q(1, 1)) < eps);
+                ASSERT(std::abs(q(0, 0)) < eps);
+            }
+        }
+
+        void TestTask_19(){
+            double eps = 1e-10;
+
+            auto x = [](double a, double b){
+                if(a ==0 && b == 0){
+                    return std::optional<std::complex<double>>{std::nullopt};
+                }
+                return std::optional<std::complex<double>>{(2/(a*a + 25) + b)/(std::sqrt(std::complex(b)) + (a + b)/2.0 )};
+            };
+
+            {
+                ASSERT(std::abs(0.53846153846 - x(1, 1).value().real()) < eps)
+                ASSERT(std::abs(1.36544757746 - x(2, -2).value().imag()) < eps)
+                ASSERT(x(0, 0).has_value() == false)
+            }
+
+            auto y = [](double a, double b){
+                if(a == 0){
+                    return std::optional<double>{std::nullopt};
+                }
+                return std::optional<double>{(std::abs(a) + 2*std::sin(b))/(5.5*a)};
+            };
+
+            {
+                ASSERT(std::abs(0.18181818181 - y(1, 0).value()) < eps)
+                ASSERT(std::abs(-0.18181818181 - y(-1, 0).value()) < eps)
+                ASSERT(std::abs(0.48780763083 - y(1, 1).value()) < eps)
+                ASSERT(std::abs(-0.16203559596 - y(-10, 10).value()) < eps)
+                ASSERT(y(0, 0).has_value() == false)
+            }
+        }
+
+        void TestTask_20(){
+
+        }
+
+        void TestTask_21(){
+
+        }
+
+        void TestTask_22(){
+
+        }
+
+        void TestTask_23(){
+
+        }
+
+        void TestTask_24(){
+
+        }
+
+        void TestTask_25(){
+
+        }
+
+        void TestTask_26(){
+
+        }
+
+        void TestTask_27(){
+
+        }
+
+        void TestTask_28(){
+
+        }
+
+        void TestTask_29(){
+
+        }
+
+        void TestTask_30(){
+
+        }
+
+        void TestTask_31(){
+
+        }
+
+        void TestTask_32(){
+
+        }
+
+        void TestTask_33(){
+
+        }
+
+        void TestTask_34(){
+
+        }
+
+        void TestTask_35(){
+
+        }
+
+        void TestTask_36(){
+
+        }
+
+        void TestTask_37(){
+
+        }
+
+        void TestTask_38(){
+
+        }
+
+
         void TestCalculationsFormulas(){
             ch_2::TestTask_1();
             ch_2::TestTask_2();
@@ -701,6 +836,8 @@ namespace tests {
             ch_2::TestTask_15();
             ch_2::TestTask_16();
             ch_2::TestTask_17();
+            ch_2::TestTask_18();
+            ch_2::TestTask_19();
         }
     }
 
@@ -708,5 +845,7 @@ namespace tests {
         TestRunner runner;
         RUN_TEST(runner, ch_1::TestDisplayingInformationOnScreen);
         RUN_TEST(runner, ch_2::TestCalculationsFormulas);
+
+        std::cout << 2.0/std::sqrt(std::complex<double>(-2.0)) << std::endl;
     }
 }
