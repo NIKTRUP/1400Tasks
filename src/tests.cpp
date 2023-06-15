@@ -845,7 +845,5 @@ namespace tests {
         TestRunner runner;
         RUN_TEST(runner, ch_1::TestDisplayingInformationOnScreen);
         RUN_TEST(runner, ch_2::TestCalculationsFormulas);
-
-        std::cout << 2.0/std::sqrt(std::complex<double>(-2.0)) << std::endl;
     }
 }
