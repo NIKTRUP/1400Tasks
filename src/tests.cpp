@@ -742,11 +742,69 @@ namespace tests {
         }
 
         void TestTask_20(){
+            double eps = 1e-8;
+            auto a = [](double e, double f, double g){
+                if(f == 0){
+                    return std::optional<std::complex<double>>{std::nullopt};
+                }
+                double c = std::abs(e - 3.0/f);
+                return std::optional<std::complex<double>>{std::sqrt(std::complex<double>{c*c*c + g})};
+            };
 
+            ASSERT(a(1, 0.0, 1).has_value() == false)
+            ASSERT(std::abs(2.0 - a(1, 3.0, 4).value().real()) < eps)
+            ASSERT(std::abs(2.0 - a(4.0, 1.0, 3.0).value().real()) < eps)
+            ASSERT(std::abs(28.256912871 - a(10.0, 4.0, 7.0).value().real()) < eps)
+
+            auto b = [](double e, double h){
+                double cos_h = std::cos(h);
+                return std::sin(e) + cos_h*cos_h;
+            };
+
+            ASSERT(std::abs(1.0 - b(0.0, 0.0)) < eps)
+            ASSERT(std::abs(0.173178189568 - b(0.0, 2.0)) < eps)
+
+            auto c = [](double e, double f, double g){
+                double denominator =  e*f- 3;
+                if(denominator == 0){
+                    return std::optional<double>{std::nullopt};
+                }
+                return std::optional<double>{(33*g)/denominator};
+            };
+
+            ASSERT(c(1.0, 3.0, 4.0).has_value() == false)
+            ASSERT(c(3.0, 1.0, 4.0).has_value() == false)
+            ASSERT(std::abs(1.0 - c(1.0, 36.0, 1.0).value()) < eps)
+            ASSERT(std::abs(15.4972375691 - c(3.3, 4.2, 5.1).value()) < eps)
         }
 
         void TestTask_21(){
+            double eps = 1e-10;
 
+            auto a = [](double e, double f){
+                return (e + f/2.0)/3.0;
+            };
+
+            ASSERT(std::abs(1.0 - a(2.0, 2.0)) < eps)
+            ASSERT(std::abs(1.0 - a(2.0, 2.0)) < eps)
+            ASSERT(std::abs(1.8 - a(3.3, 4.2)) < eps)
+
+            auto b = [](double h, double g){
+                return std::abs(h*h - g);
+            };
+
+            ASSERT(std::abs(b(1.0, 1.0)) < eps)
+            ASSERT(std::abs(3.0 - b(2.0, 1.0)) < eps)
+            ASSERT(std::abs(12.0 - b(-3.0, -3.0)) < eps)
+
+            auto c = [](double e, double h, double g){
+                double c = g - h;
+                return std::sqrt(std::complex<double>{(c*c - 3.0*std::sin(e))});
+            };
+
+            ASSERT(std::abs(c(0.0, 1.0, 1.0)) < eps)
+            ASSERT(std::abs(0.759368142485 - c(3.0, 1.0, 2.0).real()) < eps)
+            ASSERT(std::abs(0.650661220744 - c(3.0,-0.0, 0.0).imag()) < eps)
         }
 
         void TestTask_22(){
@@ -838,6 +896,8 @@ namespace tests {
             ch_2::TestTask_17();
             ch_2::TestTask_18();
             ch_2::TestTask_19();
+            ch_2::TestTask_20();
+            ch_2::TestTask_21();
         }
     }
 
