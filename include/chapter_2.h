@@ -17,6 +17,11 @@ namespace ch_2{
         area = 0;
     };
 
+    struct RectData {
+        double perimeter = 0,
+        diag = 0;
+    };
+
     double CalculateParabolicEquation(double x, double a, double b, double c);
 
     std::optional<double> CalculatePerimeterSquare(double side);
@@ -40,6 +45,8 @@ namespace ch_2{
     std::optional<double> CalculatePerimeterTriangle(double a, double b);
 
     std::optional<double> CalculatePerimeterTrapezoid(double a, double b, double h);
+
+    std::optional<RectData> CalculateRectData(double a, double b);
 }
 
 #endif //INC_1400PROGRAMMINGTASKS_CHAPTER_2_H

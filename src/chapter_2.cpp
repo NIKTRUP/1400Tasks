@@ -93,4 +93,15 @@ namespace ch_2{
         return c.has_value() ? 2*c.value() + a + b : std::optional<double>{std::nullopt};
 
     }
+
+    std::optional<RectData> CalculateRectData(double a, double b){
+        if(a <= 0 || b <= 0){
+            return std::optional<RectData>{std::nullopt};
+        }
+        auto c = CalculateHypotenuse(a, b);
+        if(!c.has_value()){
+            return std::optional<RectData>{std::nullopt};
+        }
+        return RectData{2 * a + 2 * b, c.value()};
+    }
 }

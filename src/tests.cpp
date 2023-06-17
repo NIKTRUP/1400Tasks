@@ -602,7 +602,6 @@ namespace tests {
             ASSERT(std::abs(100 - geometric_avg(-1000, -10).value())< eps)
             ASSERT(std::abs(4.47213595499958 - geometric_avg(4, 5).value())< eps)
             ASSERT(geometric_avg(-1000, 10).has_value() == false)
-
         }
 
         void TestTask_11(){
@@ -808,15 +807,100 @@ namespace tests {
         }
 
         void TestTask_22(){
+            double eps = 1e-16;
+            auto average = [](int lhs, int rhs){
+                return (static_cast<double>(std::abs(lhs) + std::abs(rhs))) / 2.0;
+            };
 
+            ASSERT(std::abs(average(0, 0))< eps)
+            ASSERT(std::abs(0.5 - average(1, 0))< eps)
+            ASSERT(std::abs(4.0 - average(4, 4))< eps)
+            ASSERT(std::abs(55 - average(10, 100))< eps)
+            ASSERT(std::abs(55 - average(-100, -10))< eps)
+
+            auto geometric_avg = [](int lhs, int rhs){
+                return std::sqrt(std::abs(lhs)*std::abs(rhs));
+            };
+
+            ASSERT(std::abs(geometric_avg(0, 0))< eps)
+            ASSERT(std::abs(geometric_avg(1, 0))< eps)
+            ASSERT(std::abs(4.0 - geometric_avg(4, 4))< eps)
+            ASSERT(std::abs(100 - geometric_avg(10, 1000))< eps)
+            ASSERT(std::abs(100 - geometric_avg(-1000, -10))< eps)
+            ASSERT(std::abs(4.47213595499958 - geometric_avg(4, 5))< eps)
         }
 
         void TestTask_23(){
+            double eps = 1e-10;
 
+            auto test = [eps](double perimeter, double diag, std::optional<::ch_2::RectData> rect){
+                return (std::abs(perimeter - rect->perimeter) < eps &&
+                        std::abs(diag - rect->diag) < eps);
+            };
+
+
+            ASSERT(::ch_2::CalculateRectData(3, -1).has_value() == false)
+            ASSERT(::ch_2::CalculateRectData(-1, 3).has_value() == false)
+            ASSERT(::ch_2::CalculateRectData(3, 0).has_value() == false)
+            ASSERT(::ch_2::CalculateRectData(0, 3).has_value() == false)
+            ASSERT(test(14.0, 5, ::ch_2::CalculateRectData(3, 4)))
+            ASSERT(test(14.0, 5, ::ch_2::CalculateRectData(4, 3)))
+            ASSERT(test(50, 18.0277563773, ::ch_2::CalculateRectData(15, 10)))
         }
 
         void TestTask_24(){
+            double eps = 1e-10;
 
+            auto sum = [](double l, double r){
+                return l + r;
+            };
+
+            ASSERT(std::abs(2 - sum(2, 0)) < eps)
+            ASSERT(std::abs(2 - sum(0, 2)) < eps)
+            ASSERT(std::abs(4 - sum(2, 2)) < eps)
+            ASSERT(std::abs(sum(2, -2)) < eps)
+            ASSERT(std::abs(sum(-2, 2)) < eps)
+            ASSERT(std::abs(6 - sum(2, 4)) < eps)
+            ASSERT(std::abs(6 - sum(4, 2)) < eps)
+
+            auto sub = [](double l, double r){
+                return l - r;
+            };
+
+            ASSERT(std::abs(2 - sub(2, 0)) < eps)
+            ASSERT(std::abs(-2 - sub(0, 2)) < eps)
+            ASSERT(std::abs(sub(2, 2)) < eps)
+            ASSERT(std::abs(4 - sub(2, -2)) < eps)
+            ASSERT(std::abs(-4 - sub(-2, 2)) < eps)
+            ASSERT(std::abs(-2 - sub(2, 4)) < eps)
+            ASSERT(std::abs(2 - sub(4, 2)) < eps)
+
+            auto mul = [](double l, double r){
+                return l * r;
+            };
+
+            ASSERT(std::abs(4 - mul(2, 2)) < eps)
+            ASSERT(std::abs(-4 - mul(2, -2)) < eps)
+            ASSERT(std::abs(-4 - mul(-2, 2)) < eps)
+            ASSERT(std::abs(8 - mul(2, 4)) < eps)
+            ASSERT(std::abs(8 - mul(4, 2)) < eps)
+            ASSERT(std::abs(mul(10, 0)) < eps)
+            ASSERT(std::abs(mul(0, 10)) < eps)
+
+            auto div = [](double l, double r){
+                if (r == 0){
+                    return std::optional<double>{std::nullopt};
+                }
+                return std::optional<double>{l/r};
+            };
+
+            ASSERT(std::abs(1 - div(2, 2).value()) < eps)
+            ASSERT(std::abs(-1 - div(2, -2).value()) < eps)
+            ASSERT(std::abs(-1 - div(-2, 2).value()) < eps)
+            ASSERT(std::abs(0.5 - div(2, 4).value()) < eps)
+            ASSERT(std::abs(2 - div(4, 2).value()) < eps)
+            ASSERT(div(10, 0).has_value() == false)
+            ASSERT(std::abs(div(0, 10).value()) < eps)
         }
 
         void TestTask_25(){
@@ -898,6 +982,9 @@ namespace tests {
             ch_2::TestTask_19();
             ch_2::TestTask_20();
             ch_2::TestTask_21();
+            ch_2::TestTask_22();
+            ch_2::TestTask_23();
+            ch_2::TestTask_24();
         }
     }
 
