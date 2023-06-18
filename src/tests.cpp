@@ -511,7 +511,16 @@ namespace tests {
         }
 
         void TestTask_6(){
-
+            double eps = 1e-5;
+            ASSERT(::ch_2::CalculateDistanceHorizonLine(-1).has_value() == false)
+            ASSERT(::ch_2::CalculateDistanceHorizonLine(-10).has_value() == false)
+            ASSERT(::ch_2::CalculateDistanceHorizonLine(1, -10).has_value() == false)
+            ASSERT(::ch_2::CalculateDistanceHorizonLine(1, 0).has_value() == false)
+            ASSERT(std::abs(::ch_2::CalculateDistanceHorizonLine(0).value()) < eps)
+            ASSERT(std::abs(112.698713391 - ::ch_2::CalculateDistanceHorizonLine(1).value()) < eps)
+            ASSERT(std::abs(356.5108694 - ::ch_2::CalculateDistanceHorizonLine(10).value()) < eps)
+            ASSERT(std::abs(35.6371996655 - ::ch_2::CalculateDistanceHorizonLine(0.1).value()) < eps)
+            ASSERT(std::abs(4.78121357398 - ::ch_2::CalculateDistanceHorizonLine(0.0018).value()) < eps)
         }
 
         void TestTask_7(){
@@ -904,7 +913,24 @@ namespace tests {
         }
 
         void TestTask_25(){
-
+            auto parallelepiped = ::ch_2::CalculateParallelepipedParameters(3, 3, 3);
+            ASSERT(parallelepiped->side_area == 54 && parallelepiped->volume == 27);
+            parallelepiped = ::ch_2::CalculateParallelepipedParameters(-1, 2, 3);
+            ASSERT(parallelepiped.has_value() == false);
+            parallelepiped = ::ch_2::CalculateParallelepipedParameters(1, -2, 3);
+            ASSERT(parallelepiped.has_value() == false);
+            parallelepiped = ::ch_2::CalculateParallelepipedParameters(1, 2, -3);
+            ASSERT(parallelepiped.has_value() == false);
+            parallelepiped = ::ch_2::CalculateParallelepipedParameters(0, 2, 3);
+            ASSERT(parallelepiped.has_value() == false);
+            parallelepiped = ::ch_2::CalculateParallelepipedParameters(1, 0, 3);
+            ASSERT(parallelepiped.has_value() == false);
+            parallelepiped = ::ch_2::CalculateParallelepipedParameters(1, 2, 0);
+            ASSERT(parallelepiped.has_value() == false);
+            parallelepiped = ::ch_2::CalculateParallelepipedParameters(1, 2, 3);
+            ASSERT(parallelepiped->side_area == 22 && parallelepiped->volume == 6);
+            parallelepiped = ::ch_2::CalculateParallelepipedParameters(10, 4, 6);
+            ASSERT(parallelepiped->side_area == 248 && parallelepiped->volume == 240);
         }
 
         void TestTask_26(){
@@ -966,7 +992,7 @@ namespace tests {
             ch_2::TestTask_3();
             ch_2::TestTask_4();
             ch_2::TestTask_5();
-
+            ch_2::TestTask_6();
             ch_2::TestTask_7();
             ch_2::TestTask_8();
             ch_2::TestTask_9();
@@ -985,6 +1011,7 @@ namespace tests {
             ch_2::TestTask_22();
             ch_2::TestTask_23();
             ch_2::TestTask_24();
+            ch_2::TestTask_25();
         }
     }
 

@@ -20,6 +20,14 @@ namespace ch_2{
         return 2 * radius;
     }
 
+    // высота h в километрах
+    std::optional<double> CalculateDistanceHorizonLine(double h, double R){
+        if(h < 0 || R <= 0){
+            return std::optional<double>{std::nullopt};
+        }
+        return std::sqrt((R+h)*(R+h) - R*R);
+    }
+
     std::optional<Cube> CalculateCubeParameters(double edge){
         if(edge < 0){
             return std::optional<Cube>{std::nullopt};
@@ -103,5 +111,13 @@ namespace ch_2{
             return std::optional<RectData>{std::nullopt};
         }
         return RectData{2 * a + 2 * b, c.value()};
+    }
+
+    std::optional<Parallelepiped> CalculateParallelepipedParameters(double a, double b, double c){
+        if(a <= 0 || b <= 0 || c <= 0){
+            return std::optional<Parallelepiped>{std::nullopt};
+        }
+        double side_area = 2*(a*b + b*c+ a*c), volume = a*b*c;
+        return Parallelepiped{volume, side_area};
     }
 }

@@ -11,6 +11,11 @@ namespace ch_2{
         side_area = 0;
     };
 
+    struct Parallelepiped{
+        double volume = 0,
+        side_area = 0;
+    };
+
     struct Circle {
         double radius = 0,
         lenght = 0,
@@ -27,6 +32,9 @@ namespace ch_2{
     std::optional<double> CalculatePerimeterSquare(double side);
 
     std::optional<double> CalculateDiameterCircle(double radius);
+
+    // высота h в километрах
+    std::optional<double> CalculateDistanceHorizonLine(double h, double R = 6350);
 
     std::optional<Cube> CalculateCubeParameters(double edge);
 
@@ -47,6 +55,8 @@ namespace ch_2{
     std::optional<double> CalculatePerimeterTrapezoid(double a, double b, double h);
 
     std::optional<RectData> CalculateRectData(double a, double b);
+
+    std::optional<Parallelepiped> CalculateParallelepipedParameters(double a, double b, double c);
 }
 
 #endif //INC_1400PROGRAMMINGTASKS_CHAPTER_2_H
