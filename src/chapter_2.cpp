@@ -99,7 +99,6 @@ namespace ch_2{
         }
         auto c = CalculateHypotenuse(d, h);
         return c.has_value() ? 2*c.value() + a + b : std::optional<double>{std::nullopt};
-
     }
 
     std::optional<RectData> CalculateRectData(double a, double b){
@@ -119,5 +118,27 @@ namespace ch_2{
         }
         double side_area = 2*(a*b + b*c+ a*c), volume = a*b*c;
         return Parallelepiped{volume, side_area};
+    }
+
+    double CalculateDistance(Point a, Point b){
+        double x = b.x - a.x,
+        y = b.y - a.y;
+        return std::sqrt(x*x + y*y);
+    }
+
+    // alpha - в радианах
+    std::optional<double> CalculateAreaTrapezoid(double a, double b, double alpha){
+        double eps = 1e-16;
+        if(a <= 0 || b <= 0 || !( (alpha > 0) && (M_PI_2 - alpha > 0) )){
+            return std::optional<double>{std::nullopt};
+        }
+
+        double m = 0;
+        if(a < b){
+            m = (b*b - a*a);
+        }else{
+            m = (a*a - b*b);
+        }
+        return m*std::tan(alpha)/4.0;
     }
 }

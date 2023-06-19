@@ -934,15 +934,30 @@ namespace tests {
         }
 
         void TestTask_26(){
-
+            double eps = 1e-16;
+            ASSERT(std::abs(3 - ::ch_2::CalculateDistance({0, 0}, {0, 3})) < eps)
+            ASSERT(std::abs(3 - ::ch_2::CalculateDistance({0, 3}, {0, 0})) < eps)
+            ASSERT(std::abs(::ch_2::CalculateDistance({0,0}, {0, 0})) < eps)
+            ASSERT(std::abs(3.605551275463989 - ::ch_2::CalculateDistance({0,0}, {2, 3})) < eps)
+            ASSERT(std::abs(22.47220505424423 - ::ch_2::CalculateDistance({10,16}, {18, -5})) < eps)
         }
 
         void TestTask_27(){
-
+            TestTask_17(); // Условие 27-го такое же, как и в 17-ом задании
         }
 
         void TestTask_28(){
-
+            double eps = 1e-8;
+            ASSERT(std::abs(6.22963089862 - ::ch_2::CalculateAreaTrapezoid(5, 3, 1.0).value()) < eps)
+            ASSERT(::ch_2::CalculateAreaTrapezoid(-1, 3, 1).has_value() == false)
+            ASSERT(::ch_2::CalculateAreaTrapezoid(3, -1, 1).has_value() == false)
+            ASSERT(::ch_2::CalculateAreaTrapezoid(0, 3, 1).has_value() == false)
+            ASSERT(::ch_2::CalculateAreaTrapezoid(3, 0, 1).has_value() == false)
+            ASSERT(::ch_2::CalculateAreaTrapezoid(3, 3, 3).has_value() == false)
+            ASSERT(std::abs(::ch_2::CalculateAreaTrapezoid(3, 3, 1).value()) < eps)
+            ASSERT(std::abs(39.866577693 - ::ch_2::CalculateAreaTrapezoid(5, 3, 1.47079632679).value()) < eps)
+            ASSERT(std::abs(39.866577693 - ::ch_2::CalculateAreaTrapezoid(3, 5, 1.47079632679).value()) < eps)
+            ASSERT(std::abs(3.80081316579 - ::ch_2::CalculateAreaTrapezoid(10, 5, 0.2).value()) < eps)
         }
 
         void TestTask_29(){
@@ -1012,6 +1027,9 @@ namespace tests {
             ch_2::TestTask_23();
             ch_2::TestTask_24();
             ch_2::TestTask_25();
+            ch_2::TestTask_26();
+            ch_2::TestTask_27();
+            ch_2::TestTask_28();
         }
     }
 

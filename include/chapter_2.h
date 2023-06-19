@@ -27,6 +27,10 @@ namespace ch_2{
         diag = 0;
     };
 
+    struct Point {
+        double x = 0, y = 0;
+    };
+
     double CalculateParabolicEquation(double x, double a, double b, double c);
 
     std::optional<double> CalculatePerimeterSquare(double side);
@@ -57,6 +61,12 @@ namespace ch_2{
     std::optional<RectData> CalculateRectData(double a, double b);
 
     std::optional<Parallelepiped> CalculateParallelepipedParameters(double a, double b, double c);
+
+    double CalculateDistance(Point a, Point b);
+
+    // alpha - в радианах
+    std::optional<double> CalculateAreaTrapezoid(double a, double b, double alpha);
+
 }
 
 #endif //INC_1400PROGRAMMINGTASKS_CHAPTER_2_H
