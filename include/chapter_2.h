@@ -31,6 +31,11 @@ namespace ch_2{
         double x = 0, y = 0;
     };
 
+    struct TriangleData{
+        double area = 0,
+        perimeter = 0;
+    };
+
     double CalculateParabolicEquation(double x, double a, double b, double c);
 
     std::optional<double> CalculatePerimeterSquare(double side);
@@ -66,6 +71,8 @@ namespace ch_2{
 
     // alpha - в радианах
     std::optional<double> CalculateAreaTrapezoid(double a, double b, double alpha);
+
+    std::optional<TriangleData> CalculateTriangleParameters(Point a, Point b, Point c);
 
 }
 

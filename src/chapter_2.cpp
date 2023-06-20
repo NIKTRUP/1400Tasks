@@ -92,11 +92,10 @@ namespace ch_2{
         double d = 0;
         if(a == b){
             return a + b + h*2;
-        }else if(a < b){
-            d = (b - a)/2.0;
-        }else{
-            d = (a - b)/2.0;
+        }else {
+            d = std::abs((b - a)/2.0);
         }
+
         auto c = CalculateHypotenuse(d, h);
         return c.has_value() ? 2*c.value() + a + b : std::optional<double>{std::nullopt};
     }
@@ -133,12 +132,22 @@ namespace ch_2{
             return std::optional<double>{std::nullopt};
         }
 
-        double m = 0;
-        if(a < b){
-            m = (b*b - a*a);
-        }else{
-            m = (a*a - b*b);
-        }
+        double m = std::abs(b*b - a*a);
         return m*std::tan(alpha)/4.0;
+    }
+
+    std::optional<TriangleData> CalculateTriangleParameters(Point a, Point b, Point c){
+
+        // проверяю, лежат ли на одной прямой
+        if( (c.y-a.y)*(b.x-a.x) == (b.y- a.y)*(c.x-a.x)){
+            return std::optional<TriangleData>{std::nullopt};
+        }
+
+        double ab = CalculateDistance(a, b),
+        ac = CalculateDistance(a, c),
+        bc = CalculateDistance(b, c);
+
+        double P = ab + bc + ac, p = P/2;
+        return TriangleData{std::sqrt(p*(p-ab)*(p-bc)*(p-ac)) , P};
     }
 }

@@ -961,7 +961,23 @@ namespace tests {
         }
 
         void TestTask_29(){
+            double eps = 1e-8;
 
+            auto triangle_data = ::ch_2::CalculateTriangleParameters({1, 1}, {1, 1}, {1, 1});
+            ASSERT(triangle_data.has_value() == false)
+
+            triangle_data = ::ch_2::CalculateTriangleParameters({1, 1}, {1, 2}, {1, 3});
+            ASSERT(triangle_data.has_value() == false)
+
+            triangle_data = ::ch_2::CalculateTriangleParameters({1, 1}, {2, 1}, {3, 1});
+            ASSERT(triangle_data.has_value() == false)
+
+            triangle_data = ::ch_2::CalculateTriangleParameters({1, 1}, {2, 2}, {3, 3});
+            ASSERT(triangle_data.has_value() == false)
+
+            triangle_data = ::ch_2::CalculateTriangleParameters({0, 0}, {10, 5}, {7, 8});
+            ASSERT(std::abs(26.0531263874 - triangle_data.value().perimeter) < eps)
+            ASSERT(std::abs(22.5 - triangle_data.value().area) < eps)
         }
 
         void TestTask_30(){
@@ -1030,6 +1046,7 @@ namespace tests {
             ch_2::TestTask_26();
             ch_2::TestTask_27();
             ch_2::TestTask_28();
+            ch_2::TestTask_29();
         }
     }
 
