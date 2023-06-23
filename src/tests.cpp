@@ -985,6 +985,28 @@ namespace tests {
         }
 
         void TestTask_31(){
+            double eps = 1e-8;
+
+            auto round_up = [](double value, int decimal_places) {
+                const double multiplier = std::pow(10.0, decimal_places);
+                return std::ceil(value * multiplier) / multiplier;
+            };
+
+            // цена за киллограмм
+            double price_sweets = 100,
+            price_apples = 200,
+            price_cookies = 150;
+
+            auto calculate_receipt = [price_sweets, price_apples, price_cookies, &round_up](double sweets_kg, double apples_kg, double cookies_kg){
+                return sweets_kg >= 0 && apples_kg >= 0 && cookies_kg >= 0 ?
+                std::optional<double>{round_up(price_sweets*sweets_kg + price_apples*apples_kg + price_cookies*cookies_kg, 2)}
+                : std::optional<double>{std::nullopt};
+            };
+
+            ASSERT(calculate_receipt(-1, 2, 3).has_value() == false)
+            ASSERT(calculate_receipt(1, -2, 3).has_value() == false)
+            ASSERT(calculate_receipt(1, 2, -3).has_value() == false)
+            ASSERT(std::abs(1000 - calculate_receipt(0, 2, 4).value()) < eps)
 
         }
 
@@ -1047,6 +1069,8 @@ namespace tests {
             ch_2::TestTask_27();
             ch_2::TestTask_28();
             ch_2::TestTask_29();
+
+            ch_2::TestTask_31();
         }
     }
 
