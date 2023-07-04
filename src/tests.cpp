@@ -8,7 +8,7 @@ namespace tests {
             ::ch_1::Print_31_18_79(ss);
             std::stringstream ss_test;
             ss_test << 31 << " " << 18 << " " << 79;
-            ASSERT(ss.str() == ss_test.str());
+            ASSERT(ss.str() == ss_test.str())
         }
 
         void TestTask_2(){
@@ -16,7 +16,7 @@ namespace tests {
             ::ch_1::Print_47__52__150(ss);
             std::stringstream ss_test;
             ss_test << 47 << "  " << 52 << "  " << 150;
-            ASSERT(ss.str() == ss_test.str());
+            ASSERT(ss.str() == ss_test.str())
         }
 
         void TestTask_3(){
@@ -25,7 +25,7 @@ namespace tests {
             std::stringstream ss_test;
             ss_test << 50 << '\n'
                     << 10;
-            ASSERT(ss.str() == ss_test.str());
+            ASSERT(ss.str() == ss_test.str())
         }
 
         void TestTask_4(){
@@ -35,7 +35,7 @@ namespace tests {
             ss_test << 5 << '\n'
                     << 10 << '\n'
                     << 21;
-            ASSERT(ss.str() == ss_test.str());
+            ASSERT(ss.str() == ss_test.str())
         }
 
         void TestTask_5(){
@@ -44,7 +44,7 @@ namespace tests {
             std::stringstream ss_test;
             ss_test << 1 << '\n'
                     << 2;
-            ASSERT(ss.str() == ss_test.str());
+            ASSERT(ss.str() == ss_test.str())
         }
 
         void TestTask_6(){
@@ -53,7 +53,7 @@ namespace tests {
             ::ch_1::PrintPi(precision,ss);
             std::stringstream ss_test;
             ss_test << 3.142;
-            ASSERT(ss.str() == ss_test.str());
+            ASSERT(ss.str() == ss_test.str())
         }
 
         void TestTask_7(){
@@ -62,7 +62,7 @@ namespace tests {
             ::ch_1::PrintExp(precision,ss);
             std::stringstream ss_test;
             ss_test << 2.7;
-            ASSERT(ss.str() == ss_test.str());
+            ASSERT(ss.str() == ss_test.str())
         }
 
         void TestTask_8(){
@@ -72,7 +72,7 @@ namespace tests {
                 ::ch_1::EnterNumberAndPrint1(ss_in, ss_out);
                 std::stringstream ss_test;
                 ss_test << "Вы ввели число 10";
-                ASSERT(ss_out.str() == ss_test.str());
+                ASSERT(ss_out.str() == ss_test.str())
             }
 
             {
@@ -81,7 +81,7 @@ namespace tests {
                 ::ch_1::EnterNumberAndPrint1(ss_in, ss_out);
                 std::stringstream ss_test;
                 ss_test << ::ch_1::input_error_message;
-                ASSERT(ss_out.str() == ss_test.str());
+                ASSERT(ss_out.str() == ss_test.str())
             }
         }
 
@@ -92,7 +92,7 @@ namespace tests {
                 ::ch_1::EnterNumberAndPrint2(ss_in, ss_out);
                 std::stringstream ss_test;
                 ss_test << "10 - вот какое число Вы ввели";
-                ASSERT(ss_out.str() == ss_test.str());
+                ASSERT(ss_out.str() == ss_test.str())
             }
 
             {
@@ -101,7 +101,7 @@ namespace tests {
                 ::ch_1::EnterNumberAndPrint2(ss_in, ss_out);
                 std::stringstream ss_test;
                 ss_test << ::ch_1::input_error_message;
-                ASSERT(ss_out.str() == ss_test.str());
+                ASSERT(ss_out.str() == ss_test.str())
             }
         }
 
@@ -111,7 +111,7 @@ namespace tests {
             ::ch_1::RepeatName(name, ss_out);
             std::stringstream ss_test;
             ss_test << "Leha Leha";
-            ASSERT(ss_out.str() == ss_test.str());
+            ASSERT(ss_out.str() == ss_test.str())
         }
 
         void TestTask_11(){
@@ -120,7 +120,7 @@ namespace tests {
             ::ch_1::RepeatNameChampion(name, ss_out);
             std::stringstream ss_test;
             ss_test << "Leha Leha - это чемпион!";
-            ASSERT(ss_out.str() == ss_test.str());
+            ASSERT(ss_out.str() == ss_test.str())
         }
 
         void TestTask_12(){
@@ -129,7 +129,7 @@ namespace tests {
             ::ch_1::Hi(name, ss_out);
             std::stringstream ss_test;
             ss_test << "Привет, Leha!";
-            ASSERT(ss_out.str() == ss_test.str());
+            ASSERT(ss_out.str() == ss_test.str())
         }
 
         void TestTask_13(){
@@ -140,7 +140,7 @@ namespace tests {
                 std::stringstream ss_test;
                 ss_test << "Следующее за числом 10 число - 11." << '\n'
                         << "Для числа 10 предыдущее число - 9." << '\n';
-                ASSERT(ss_out.str() == ss_test.str());
+                ASSERT(ss_out.str() == ss_test.str())
             }
 
             {
@@ -149,7 +149,7 @@ namespace tests {
                 ::ch_1::PrintCurrentPrevNextNumber(ss_in, ss_out);
                 std::stringstream ss_test;
                 ss_test << ::ch_1::input_error_message;
-                ASSERT(ss_out.str() == ss_test.str());
+                ASSERT(ss_out.str() == ss_test.str())
             }
         }
 
@@ -163,7 +163,7 @@ namespace tests {
                 ::ch_1::PrintThreeNumbers(ss_in, ss_out);
                 std::stringstream ss_test;
                 ss_test << "10  11  12";
-                ASSERT(ss_out.str() == ss_test.str());
+                ASSERT(ss_out.str() == ss_test.str())
             }
 
             {
@@ -172,7 +172,7 @@ namespace tests {
                 ::ch_1::PrintThreeNumbers(ss_in, ss_out);
                 std::stringstream ss_test;
                 ss_test << ::ch_1::input_error_message;
-                ASSERT(ss_out.str() == ss_test.str());
+                ASSERT(ss_out.str() == ss_test.str())
             }
 
             {
@@ -181,7 +181,7 @@ namespace tests {
                 ::ch_1::PrintThreeNumbers(ss_in, ss_out);
                 std::stringstream ss_test;
                 ss_test << ::ch_1::input_error_message;
-                ASSERT(ss_out.str() == ss_test.str());
+                ASSERT(ss_out.str() == ss_test.str())
             }
 
             {
@@ -190,7 +190,7 @@ namespace tests {
                 ::ch_1::PrintThreeNumbers(ss_in, ss_out);
                 std::stringstream ss_test;
                 ss_test << ::ch_1::input_error_message;
-                ASSERT(ss_out.str() == ss_test.str());
+                ASSERT(ss_out.str() == ss_test.str())
             }
 
             {
@@ -199,7 +199,7 @@ namespace tests {
                 ::ch_1::PrintThreeNumbers(ss_in, ss_out);
                 std::stringstream ss_test;
                 ss_test << "10  11  124";
-                ASSERT(ss_out.str() == ss_test.str());
+                ASSERT(ss_out.str() == ss_test.str())
             }
 
             {
@@ -208,7 +208,7 @@ namespace tests {
                 ::ch_1::PrintThreeNumbers(ss_in, ss_out);
                 std::stringstream ss_test;
                 ss_test << "10  11  12";
-                ASSERT(ss_out.str() == ss_test.str());
+                ASSERT(ss_out.str() == ss_test.str())
             }
         }
 
@@ -219,7 +219,7 @@ namespace tests {
                 ::ch_1::PrintFourNumbers(ss_in, ss_out);
                 std::stringstream ss_test;
                 ss_test << "10 11 12 15";
-                ASSERT(ss_out.str() == ss_test.str());
+                ASSERT(ss_out.str() == ss_test.str())
             }
 
             {
@@ -228,7 +228,7 @@ namespace tests {
                 ::ch_1::PrintFourNumbers(ss_in, ss_out);
                 std::stringstream ss_test;
                 ss_test << ::ch_1::input_error_message;
-                ASSERT(ss_out.str() == ss_test.str());
+                ASSERT(ss_out.str() == ss_test.str())
             }
 
             {
@@ -237,7 +237,7 @@ namespace tests {
                 ::ch_1::PrintFourNumbers(ss_in, ss_out);
                 std::stringstream ss_test;
                 ss_test << ::ch_1::input_error_message;
-                ASSERT(ss_out.str() == ss_test.str());
+                ASSERT(ss_out.str() == ss_test.str())
             }
 
             {
@@ -246,7 +246,7 @@ namespace tests {
                 ::ch_1::PrintFourNumbers(ss_in, ss_out);
                 std::stringstream ss_test;
                 ss_test << ::ch_1::input_error_message;
-                ASSERT(ss_out.str() == ss_test.str());
+                ASSERT(ss_out.str() == ss_test.str())
             }
 
             {
@@ -255,7 +255,7 @@ namespace tests {
                 ::ch_1::PrintFourNumbers(ss_in, ss_out);
                 std::stringstream ss_test;
                 ss_test << "10 11 12 15";
-                ASSERT(ss_out.str() == ss_test.str());
+                ASSERT(ss_out.str() == ss_test.str())
             }
 
             {
@@ -264,7 +264,7 @@ namespace tests {
                 ::ch_1::PrintFourNumbers(ss_in, ss_out);
                 std::stringstream ss_test;
                 ss_test << "10 11 12 15";
-                ASSERT(ss_out.str() == ss_test.str());
+                ASSERT(ss_out.str() == ss_test.str())
             }
         }
 
@@ -276,7 +276,7 @@ namespace tests {
                 std::stringstream ss_test;
                 ss_test << "5 10\n";
                 ss_test << "7 см\n";
-                ASSERT(ss_out.str() == ss_test.str());
+                ASSERT(ss_out.str() == ss_test.str())
             }
             // б)
             {
@@ -286,7 +286,7 @@ namespace tests {
                 std::stringstream ss_test;
                 ss_test << "100 10\n";
                 ss_test << "1949 15\n";
-                ASSERT(ss_out.str() == ss_test.str());
+                ASSERT(ss_out.str() == ss_test.str())
             }
 
             {
@@ -295,7 +295,7 @@ namespace tests {
                 ::ch_1::Print16VarB(ss_in, ss_out);
                 std::stringstream ss_test;
                 ss_test << ::ch_1::input_error_message;
-                ASSERT(ss_out.str() == ss_test.str());
+                ASSERT(ss_out.str() == ss_test.str())
             }
 
             {
@@ -304,7 +304,7 @@ namespace tests {
                 ::ch_1::Print16VarB(ss_in, ss_out);
                 std::stringstream ss_test;
                 ss_test << ::ch_1::input_error_message;
-                ASSERT(ss_out.str() == ss_test.str());
+                ASSERT(ss_out.str() == ss_test.str())
             }
             // в)
             {
@@ -314,7 +314,7 @@ namespace tests {
                 std::stringstream ss_test;
                 ss_test << "10 25\n";
                 ss_test << "10 15\n";
-                ASSERT(ss_out.str() == ss_test.str());
+                ASSERT(ss_out.str() == ss_test.str())
             }
 
             {
@@ -323,7 +323,7 @@ namespace tests {
                 ::ch_1::Print16VarC(ss_in, ss_out);
                 std::stringstream ss_test;
                 ss_test << ::ch_1::input_error_message;
-                ASSERT(ss_out.str() == ss_test.str());
+                ASSERT(ss_out.str() == ss_test.str())
             }
 
             {
@@ -332,7 +332,7 @@ namespace tests {
                 ::ch_1::Print16VarC(ss_in, ss_out);
                 std::stringstream ss_test;
                 ss_test << ::ch_1::input_error_message;
-                ASSERT(ss_out.str() == ss_test.str());
+                ASSERT(ss_out.str() == ss_test.str())
             }
         }
 
@@ -344,7 +344,7 @@ namespace tests {
                 std::stringstream ss_test;
                 ss_test << "2 кг\n";
                 ss_test << "13 17\n";
-                ASSERT(ss_out.str() == ss_test.str());
+                ASSERT(ss_out.str() == ss_test.str())
             }
             // б)
             {
@@ -354,7 +354,7 @@ namespace tests {
                 std::stringstream ss_test;
                 ss_test << "10 1\n";
                 ss_test << "19 15\n";
-                ASSERT(ss_out.str() == ss_test.str());
+                ASSERT(ss_out.str() == ss_test.str())
             }
 
             {
@@ -363,7 +363,7 @@ namespace tests {
                 ::ch_1::Print17VarB(ss_in, ss_out);
                 std::stringstream ss_test;
                 ss_test << ::ch_1::input_error_message;
-                ASSERT(ss_out.str() == ss_test.str());
+                ASSERT(ss_out.str() == ss_test.str())
             }
 
             {
@@ -372,7 +372,7 @@ namespace tests {
                 ::ch_1::Print17VarB(ss_in, ss_out);
                 std::stringstream ss_test;
                 ss_test << ::ch_1::input_error_message;
-                ASSERT(ss_out.str() == ss_test.str());
+                ASSERT(ss_out.str() == ss_test.str())
             }
             // в)
             {
@@ -382,7 +382,7 @@ namespace tests {
                 std::stringstream ss_test;
                 ss_test << "10 15\n";
                 ss_test << "5 15\n";
-                ASSERT(ss_out.str() == ss_test.str());
+                ASSERT(ss_out.str() == ss_test.str())
             }
 
             {
@@ -391,7 +391,7 @@ namespace tests {
                 ::ch_1::Print17VarC(ss_in, ss_out);
                 std::stringstream ss_test;
                 ss_test << ::ch_1::input_error_message;
-                ASSERT(ss_out.str() == ss_test.str());
+                ASSERT(ss_out.str() == ss_test.str())
             }
 
             {
@@ -400,7 +400,7 @@ namespace tests {
                 ::ch_1::Print17VarC(ss_in, ss_out);
                 std::stringstream ss_test;
                 ss_test << ::ch_1::input_error_message;
-                ASSERT(ss_out.str() == ss_test.str());
+                ASSERT(ss_out.str() == ss_test.str())
             }
         }
 
@@ -458,10 +458,10 @@ namespace tests {
                 return (a*a + 10)/(std::sqrt(a*a + 1));
             };
 
-            ASSERT(std::abs(10 - function_task_2(0)) < eps);
-            ASSERT(std::abs(7.77817459305 - function_task_2(1)) < eps);
-            ASSERT(std::abs(7.77817459305 - function_task_2(-1)) < eps);
-            ASSERT(std::abs(10000.00095 - function_task_2(10000)) < 1e-5);
+            ASSERT(std::abs(10 - function_task_2(0)) < eps)
+            ASSERT(std::abs(7.77817459305 - function_task_2(1)) < eps)
+            ASSERT(std::abs(7.77817459305 - function_task_2(-1)) < eps)
+            ASSERT(std::abs(10000.00095 - function_task_2(10000)) < 1e-5)
         }
 
         void TestTask_3(){
@@ -471,11 +471,11 @@ namespace tests {
                     return (std::sqrt(std::complex<double>((2*a + std::sin(std::abs(3*a)))/3.56)));
                 };
 
-                ASSERT(std::abs(function_task_3a(0).real()) < eps);
-                ASSERT(std::abs(0.775524470608 - function_task_3a(1).real()) < eps);
-                ASSERT(std::abs(2.3109393231 - function_task_3a(10).real()) < eps);
-                ASSERT(std::abs(0.192586684092 - function_task_3a(-0.4).real()) < eps);
-                ASSERT(std::abs(0.0265265046378 - function_task_3a(-0.5).imag()) < eps);
+                ASSERT(std::abs(function_task_3a(0).real()) < eps)
+                ASSERT(std::abs(0.775524470608 - function_task_3a(1).real()) < eps)
+                ASSERT(std::abs(2.3109393231 - function_task_3a(10).real()) < eps)
+                ASSERT(std::abs(0.192586684092 - function_task_3a(-0.4).real()) < eps)
+                ASSERT(std::abs(0.0265265046378 - function_task_3a(-0.5).imag()) < eps)
             }
 
             {
@@ -487,7 +487,7 @@ namespace tests {
                             std::sin((3.2 + std::sqrt(std::complex<double>(1 + x)))/(std::abs(5*x)))
                             );
                 };
-                ASSERT(function_task_3b(0).has_value() == false);
+                ASSERT(function_task_3b(0).has_value() == false)
                 ASSERT(function_task_3b(1).has_value() && std::abs(0.797320575602 - function_task_3b(1).value().real()) < eps)
                 ASSERT(function_task_3b(10).has_value() && std::abs(0.12996382562 - function_task_3b(10).value().real()) < eps)
                 ASSERT(function_task_3b(-1).has_value() && std::abs(0.597195441362 - function_task_3b(-1).value().real()) < eps)
@@ -497,17 +497,17 @@ namespace tests {
         }
 
         void TestTask_4(){
-            ASSERT(::ch_2::CalculatePerimeterSquare(10) == 40);
-            ASSERT(::ch_2::CalculatePerimeterSquare(-10).has_value() == false);
-            ASSERT(::ch_2::CalculatePerimeterSquare(0) == 0);
-            ASSERT(::ch_2::CalculatePerimeterSquare(1) == 4);
+            ASSERT(::ch_2::CalculatePerimeterSquare(10) == 40)
+            ASSERT(::ch_2::CalculatePerimeterSquare(-10).has_value() == false)
+            ASSERT(::ch_2::CalculatePerimeterSquare(0) == 0)
+            ASSERT(::ch_2::CalculatePerimeterSquare(1) == 4)
         }
 
         void TestTask_5(){
-            ASSERT(::ch_2::CalculateDiameterCircle(10) == 20);
-            ASSERT(::ch_2::CalculateDiameterCircle(-10).has_value() == false);
-            ASSERT(::ch_2::CalculateDiameterCircle(0) == 0);
-            ASSERT(::ch_2::CalculateDiameterCircle(1) == 2);
+            ASSERT(::ch_2::CalculateDiameterCircle(10) == 20)
+            ASSERT(::ch_2::CalculateDiameterCircle(-10).has_value() == false)
+            ASSERT(::ch_2::CalculateDiameterCircle(0) == 0)
+            ASSERT(::ch_2::CalculateDiameterCircle(1) == 2)
         }
 
         void TestTask_6(){
@@ -525,15 +525,15 @@ namespace tests {
 
         void TestTask_7(){
             auto cube = ::ch_2::CalculateCubeParameters(3);
-            ASSERT(cube->side_area == 9 && cube->volume == 27);
+            ASSERT(cube->side_area == 9 && cube->volume == 27)
             cube = ::ch_2::CalculateCubeParameters(-10);
-            ASSERT(cube.has_value() == false);
+            ASSERT(cube.has_value() == false)
             cube = ::ch_2::CalculateCubeParameters(0);
-            ASSERT(cube->side_area == 0 && cube->volume == 0);
+            ASSERT(cube->side_area == 0 && cube->volume == 0)
             cube = ::ch_2::CalculateCubeParameters(1);
-            ASSERT(cube->side_area == 1 && cube->volume == 1);
+            ASSERT(cube->side_area == 1 && cube->volume == 1)
             cube = ::ch_2::CalculateCubeParameters(10);
-            ASSERT(cube->side_area == 100 && cube->volume == 1000);
+            ASSERT(cube->side_area == 100 && cube->volume == 1000)
         }
 
         void TestTask_8(){
@@ -552,15 +552,15 @@ namespace tests {
             };
 
             auto circle = ::ch_2::CalculateCircleParameters(radius_t1);
-            ASSERT(test(radius_t1, circle));
+            ASSERT(test(radius_t1, circle))
             circle = ::ch_2::CalculateCircleParameters(radius_t2);
-            ASSERT(circle.has_value() == false);
+            ASSERT(circle.has_value() == false)
             circle = ::ch_2::CalculateCircleParameters(radius_t3);
-            ASSERT(test(radius_t3, circle));
+            ASSERT(test(radius_t3, circle))
             circle = ::ch_2::CalculateCircleParameters(radius_t4);
-            ASSERT(test(radius_t4, circle));
+            ASSERT(test(radius_t4, circle))
             circle = ::ch_2::CalculateCircleParameters(radius_t5);
-            ASSERT(test(radius_t5, circle));
+            ASSERT(test(radius_t5, circle))
         }
 
         void TestTask_9(){
@@ -569,9 +569,9 @@ namespace tests {
                 auto function_9a = [](double x, double y){
                     return 2*x*x*x - 3.44*x*y + 2.3*x*x - 7.1*y;
                 };
-                ASSERT(std::abs(function_9a(0, 0)) < eps);
-                ASSERT(std::abs(3.96 - function_9a(-1, -1)) < eps);
-                ASSERT(std::abs(-6.24 - function_9a(1, 1)) < eps);
+                ASSERT(std::abs(function_9a(0, 0)) < eps)
+                ASSERT(std::abs(3.96 - function_9a(-1, -1)) < eps)
+                ASSERT(std::abs(-6.24 - function_9a(1, 1)) < eps)
             }
 
             {
@@ -579,9 +579,9 @@ namespace tests {
                     double c = (a+b);
                     return 3.14*c*c*c + 2.75*b*b - 12.7*a - 4.1;
                 };
-                ASSERT(std::abs(-4.1 - function_9b(0, 0)) < eps);
-                ASSERT(std::abs(-13.77 - function_9b(-1, -1)) < eps);
-                ASSERT(std::abs(11.07 - function_9b(1, 1)) < eps);
+                ASSERT(std::abs(-4.1 - function_9b(0, 0)) < eps)
+                ASSERT(std::abs(-13.77 - function_9b(-1, -1)) < eps)
+                ASSERT(std::abs(11.07 - function_9b(1, 1)) < eps)
             }
         }
 
@@ -702,8 +702,8 @@ namespace tests {
             };
 
             {
-                ASSERT(std::abs(3.07335008386 - z(1, 1).value()) < eps);
-                ASSERT(z(0, 1).has_value() == false);
+                ASSERT(std::abs(3.07335008386 - z(1, 1).value()) < eps)
+                ASSERT(z(0, 1).has_value() == false)
             }
 
             auto q = [](double x, double y){
@@ -711,9 +711,9 @@ namespace tests {
             };
 
             {
-                ASSERT(std::abs(6.10066463986 - q(1, 0)) < eps);
-                ASSERT(std::abs(5.10066463986 - q(1, 1)) < eps);
-                ASSERT(std::abs(q(0, 0)) < eps);
+                ASSERT(std::abs(6.10066463986 - q(1, 0)) < eps)
+                ASSERT(std::abs(5.10066463986 - q(1, 1)) < eps)
+                ASSERT(std::abs(q(0, 0)) < eps)
             }
         }
 
@@ -914,23 +914,23 @@ namespace tests {
 
         void TestTask_25(){
             auto parallelepiped = ::ch_2::CalculateParallelepipedParameters(3, 3, 3);
-            ASSERT(parallelepiped->side_area == 54 && parallelepiped->volume == 27);
+            ASSERT(parallelepiped->side_area == 54 && parallelepiped->volume == 27)
             parallelepiped = ::ch_2::CalculateParallelepipedParameters(-1, 2, 3);
-            ASSERT(parallelepiped.has_value() == false);
+            ASSERT(parallelepiped.has_value() == false)
             parallelepiped = ::ch_2::CalculateParallelepipedParameters(1, -2, 3);
-            ASSERT(parallelepiped.has_value() == false);
+            ASSERT(parallelepiped.has_value() == false)
             parallelepiped = ::ch_2::CalculateParallelepipedParameters(1, 2, -3);
-            ASSERT(parallelepiped.has_value() == false);
+            ASSERT(parallelepiped.has_value() == false)
             parallelepiped = ::ch_2::CalculateParallelepipedParameters(0, 2, 3);
-            ASSERT(parallelepiped.has_value() == false);
+            ASSERT(parallelepiped.has_value() == false)
             parallelepiped = ::ch_2::CalculateParallelepipedParameters(1, 0, 3);
-            ASSERT(parallelepiped.has_value() == false);
+            ASSERT(parallelepiped.has_value() == false)
             parallelepiped = ::ch_2::CalculateParallelepipedParameters(1, 2, 0);
-            ASSERT(parallelepiped.has_value() == false);
+            ASSERT(parallelepiped.has_value() == false)
             parallelepiped = ::ch_2::CalculateParallelepipedParameters(1, 2, 3);
-            ASSERT(parallelepiped->side_area == 22 && parallelepiped->volume == 6);
+            ASSERT(parallelepiped->side_area == 22 && parallelepiped->volume == 6)
             parallelepiped = ::ch_2::CalculateParallelepipedParameters(10, 4, 6);
-            ASSERT(parallelepiped->side_area == 248 && parallelepiped->volume == 240);
+            ASSERT(parallelepiped->side_area == 248 && parallelepiped->volume == 240)
         }
 
         void TestTask_26(){
@@ -1011,11 +1011,34 @@ namespace tests {
         }
 
         void TestTask_32(){
-
+            double eps = 1e-16;
+            double price_screen = 100,
+                price_system_unit = 200,
+                price_mouse = 5,
+                price_keyboard = 10;
+            auto build_computers = [price_screen, price_system_unit, price_mouse, price_keyboard](double amount){
+                return amount*(price_screen + price_system_unit + price_mouse + price_keyboard);
+            };
+            ASSERT(std::abs(945 - build_computers(3)) < eps)
         }
 
         void TestTask_33(){
+            double eps = 1e-16;
+            struct Info{
+                double avg = 0,
+                    diff_from_avg_tanya = 0,
+                    diff_from_avg_mitya = 0;
+            };
 
+            auto calculate_avg_diff_from_avg = [](size_t age_tanya, size_t age_mitya){
+                double avg = static_cast<double>(age_tanya + age_mitya)/2.0;
+                return Info{avg, std::abs(avg - static_cast<double>(age_tanya)), std::abs(avg - static_cast<double>(age_mitya))};
+            };
+
+            auto info = calculate_avg_diff_from_avg(10, 15);
+            ASSERT(std::abs(info.avg - 12.5) < eps)
+            ASSERT(std::abs(info.diff_from_avg_tanya - 2.5) < eps)
+            ASSERT(std::abs(info.diff_from_avg_mitya - 2.5) < eps)
         }
 
         void TestTask_34(){
@@ -1071,6 +1094,8 @@ namespace tests {
             ch_2::TestTask_29();
 
             ch_2::TestTask_31();
+            ch_2::TestTask_32();
+            ch_2::TestTask_33();
         }
     }
 
